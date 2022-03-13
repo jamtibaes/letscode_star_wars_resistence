@@ -1,19 +1,48 @@
 package com.letscode.starwar.controller;
 
+import com.letscode.starwar.dto.RebeldesRequestDTO;
+import com.letscode.starwar.entity.Rebelde;
+import com.letscode.starwar.service.RebeldeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.net.URI;
+import java.util.List;
 
 @EnableSwagger2
 @RestController
-@RequestMapping("/v1")
+@RequestMapping(value = "/v1")
 public class StarWarsController {
 
-    @GetMapping(value = "/rebeldes")
-    public ResponseEntity<String> get() {
-        return ResponseEntity.ok("OK, Google");
+    @Autowired
+    private RebeldeService service;
+
+    @GetMapping("/rebeldes")
+    public ResponseEntity<List<Rebelde>> getRebeldes() {
+        List<Rebelde> listaRebeldes = service.getRebeldes();
+        return ResponseEntity.ok(listaRebeldes);
+    }
+
+    @GetMapping("/traidores")
+    public ResponseEntity<List<Rebelde>> getTraidores() {
+        List<Rebelde> listaRebeldes = service.getTraidores();
+        return ResponseEntity.ok(listaRebeldes);
+    }
+
+    @GetMapping("/rebeldes/{id}")
+    public ResponseEntity<Rebelde> getId(@PathVariable Long id) {
+        Rebelde rebelde = service.findById(id);
+        return ResponseEntity.ok(rebelde);
+    }
+
+    @PostMapping("/rebeldes")
+    public ResponseEntity<Rebelde> save(@RequestBody RebeldesRequestDTO rebelde , UriComponentsBuilder uriBuilder) {
+        Rebelde rebeldeEntity = service.save(rebelde);
+        URI uri = uriBuilder.path("rebeldes/{id}").buildAndExpand(rebeldeEntity.getId()).toUri();
+        return ResponseEntity.created(uri).body(rebeldeEntity);
     }
 
 }
