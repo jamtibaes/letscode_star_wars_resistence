@@ -12,6 +12,7 @@ import javax.persistence.Id;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Localizacao {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

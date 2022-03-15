@@ -26,6 +26,6 @@ public class Rebelde{
     @OneToOne
     private Localizacao localizacao;
 
-    private int reporteTraicao = 0;
+    private Integer reporteTraicao;
 
 }

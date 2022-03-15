@@ -1,5 +1,6 @@
 package com.letscode.starwar.service;
 
+import com.letscode.starwar.dto.MensagemResponseDTO;
 import com.letscode.starwar.dto.RebeldesRequestDTO;
 import com.letscode.starwar.entity.Inventario;
 import com.letscode.starwar.entity.Localizacao;
@@ -62,6 +63,7 @@ public class RebeldeService {
                 .idade(dto.getIdade())
                 .inventario(inventario)
                 .localizacao(localizacao)
+                .reporteTraicao(0)
                 .build();
         return rebelde;
     }
@@ -85,4 +87,21 @@ public class RebeldeService {
         return inventario;
     }
 
+    public MensagemResponseDTO updateTraidor(Long id) {
+        Rebelde rebelde = rebeldeRepository.getById(id);
+        rebelde.setReporteTraicao(rebelde.getReporteTraicao() + 1);
+        rebeldeRepository.save(rebelde);
+        return MensagemResponseDTO.builder().message("Delatado rebelde ID: " + rebelde.getId()).build();
+    }
+
+    public MensagemResponseDTO updateLocalizacao(Long id, Localizacao loc) {
+        Localizacao localizacaoEntity = localizacaoRepository.getById(id);
+        localizacaoEntity.setNomeGalaxia(loc.getNomeGalaxia());
+        localizacaoEntity.setLongitude(loc.getLongitude());
+        localizacaoEntity.setLatitude(loc.getLatitude());
+        localizacaoRepository.save(localizacaoEntity);
+        return MensagemResponseDTO.builder()
+                    .message("Atualizado localizacao ID")
+                    .build();
+    }
 }
