@@ -104,4 +104,30 @@ public class RebeldeService {
                     .message("Atualizado localizacao ID")
                     .build();
     }
+
+    public MensagemResponseDTO getRelatorioRebeldes() {
+        return MensagemResponseDTO.builder()
+                .message("Temos "
+                        + rebeldeRepository
+                            .findAll().stream()
+                            .filter(item -> item.getReporteTraicao() <= 3)
+                            .count()
+                        + " rebelde(s) no total de "
+                        + rebeldeRepository.count()
+                        + " cadastrados na API.")
+                .build();
+    }
+
+    public MensagemResponseDTO getRelatorioTraidores() {
+        return MensagemResponseDTO.builder()
+                .message("Temos "
+                        + rebeldeRepository
+                        .findAll().stream()
+                        .filter(item -> item.getReporteTraicao() > 3)
+                        .count()
+                        + " traidor(es) no total de "
+                        + rebeldeRepository.count()
+                        + " cadastrados na API.")
+                .build();
+    }
 }

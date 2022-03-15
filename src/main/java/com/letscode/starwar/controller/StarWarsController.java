@@ -57,6 +57,16 @@ public class StarWarsController {
         return service.updateLocalizacao(id, loc);
     }
 
+    @GetMapping("/relatorio/rebeldes")
+    public MensagemResponseDTO getRelatorioRebeldes() {
+        return service.getRelatorioRebeldes();
+    }
+
+    @GetMapping("/relatorio/traidores")
+    public MensagemResponseDTO getRelatorioTraidores() {
+        return service.getRelatorioTraidores();
+    }
+
 
 
 }
