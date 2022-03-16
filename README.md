@@ -7,7 +7,7 @@ Arquivo: StarWars.postman_collection.json (Postman configurado para consumir a A
 
 ### Cadastro Rebelde (POST /rebeldes)
 ```
-http://localhost:8080/v1/rebeldes
+https://app-starwars-letscode.herokuapp.com/v1/rebeldes
 {
         "nome": "Obi-Wan Kenobi",
         "idade": 57,
@@ -27,23 +27,23 @@ http://localhost:8080/v1/rebeldes
 ```
 ### Consulta Rebeldes (GET /rebeldes)
 ```
-http://localhost:8080/v1/rebeldes
+https://app-starwars-letscode.herokuapp.com/v1/rebeldes
 ```
 ### Consulta Rebelde por ID (GET /rebeldes/{id})
 ```
-http://localhost:8080/v1/rebeldes/1
+https://app-starwars-letscode.herokuapp.com/v1/rebeldes/1
 ```
 ### Consulta Traidores (GET /traidores)
 ```
-http://localhost:8080/v1/traidores
+https://app-starwars-letscode.herokuapp.com/v1/traidores
 ```
 ### Reporte Traidores (POST /traidores/{id})
 ```
-http://localhost:8080/v1/traidores/1
+https://app-starwars-letscode.herokuapp.com/v1/traidores/1
 ```
 ### Alteração de Localização (PUT /localização/{id})
 ```
-http://localhost:8080/v1/localizacao/1
+https://app-starwars-letscode.herokuapp.com/v1/localizacao/1
 {
     "nomeGalaxia": "Boro",
     "latitude": 1.0,
@@ -52,7 +52,7 @@ http://localhost:8080/v1/localizacao/1
 ```
 ### Transação de Inventário (POST /transacao)
 ```
-http://localhost:8080/v1/transacao
+https://app-starwars-letscode.herokuapp.com/v1/transacao
 {
     "idComprador" : 1,
     "armaComprador" : 1,
@@ -70,17 +70,17 @@ http://localhost:8080/v1/transacao
 ```
 ### Relatorio de Rebeldes (GET /relatorios/rebeldes)
 ```
-http://localhost:8080/v1/relatorio/rebeldes
+https://app-starwars-letscode.herokuapp.com/v1/relatorio/rebeldes
 ```
 ### Relatorio de Traidores (GET /relatorios/traidores)
 ```
-http://localhost:8080/v1/relatorio/traidores
+https://app-starwars-letscode.herokuapp.com/v1/relatorio/traidores
 ```
 ### Relatorio de Media de Recursos (GET /relatorios/mediarecursos)
 ```
-http://localhost:8080/v1/relatorio/mediarecursos
+https://app-starwars-letscode.herokuapp.com/v1/relatorio/mediarecursos
 ```
 ### Relatorio de Pontos Perdidos por Traição (GET /relatorios/pontosperdidos)
 ```
-http://localhost:8080/v1/relatorio/pontosperdidos
+https://app-starwars-letscode.herokuapp.com/v1/relatorio/pontosperdidos
 ```
