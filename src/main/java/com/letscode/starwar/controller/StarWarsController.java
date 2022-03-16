@@ -2,8 +2,11 @@ package com.letscode.starwar.controller;
 
 import com.letscode.starwar.dto.MensagemResponseDTO;
 import com.letscode.starwar.dto.RebeldesRequestDTO;
+import com.letscode.starwar.dto.TrocasRequestDTO;
 import com.letscode.starwar.entity.Localizacao;
 import com.letscode.starwar.entity.Rebelde;
+import com.letscode.starwar.exception.RebeldesNaoEncontradoExcessao;
+import com.letscode.starwar.exception.TraidorNaoEncontradoExcessao;
 import com.letscode.starwar.service.RebeldeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @EnableSwagger2
 @RestController
@@ -35,7 +39,7 @@ public class StarWarsController {
     }
 
     @GetMapping("/rebeldes/{id}")
-    public ResponseEntity<Rebelde> getRebeldeId(@PathVariable Long id) {
+    public ResponseEntity<Rebelde> getRebeldeId(@PathVariable Long id) throws RebeldesNaoEncontradoExcessao {
         Rebelde rebelde = service.findById(id);
         return ResponseEntity.ok(rebelde);
     }
@@ -48,13 +52,18 @@ public class StarWarsController {
     }
 
     @PostMapping("/traidores/{id}")
-    public MensagemResponseDTO postTraidor(@PathVariable Long id) {
+    public MensagemResponseDTO postTraidor(@PathVariable Long id) throws TraidorNaoEncontradoExcessao {
         return service.updateTraidor(id);
     }
 
     @PutMapping("/localizacao/{id}")
-    public MensagemResponseDTO updateLocalizacao(@PathVariable Long id, @RequestBody Localizacao loc) {
+    public MensagemResponseDTO updateLocalizacao (@PathVariable Long id, @RequestBody Localizacao loc) throws RebeldesNaoEncontradoExcessao{
         return service.updateLocalizacao(id, loc);
+    }
+
+    @PostMapping("/transacao")
+    public MensagemResponseDTO postTraidor(@RequestBody TrocasRequestDTO trocasRequestDTO) {
+        return service.negociarItens(trocasRequestDTO);
     }
 
     @GetMapping("/relatorio/rebeldes")
@@ -67,6 +76,15 @@ public class StarWarsController {
         return service.getRelatorioTraidores();
     }
 
+    @GetMapping("/relatorio/mediarecursos")
+    public MensagemResponseDTO getRelatorioMediaRecursos(){
+        return service.getRelatorioMediaRecursos();
+    }
+
+    @GetMapping("/relatorio/pontosperdidos")
+    public MensagemResponseDTO getRelatorioPontosPerdidosTraidores() {
+        return service.getRelatorioPontosPerdidosTraidores();
+    }
 
 
 }

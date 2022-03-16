@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "7b32f00f-17ab-46b3-8aac-0e4e89ef113e",
+		"name": "StarWars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/rebeldes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/rebeldes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"rebeldes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/rebeldes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 2,\r\n        \"nome\": \"Obi-Wan Kenobi\",\r\n        \"idade\": 57,\r\n        \"genero\": \"MASCULINO\",\r\n        \"inventario\": {\r\n            \"arma\": 2,\r\n            \"municao\": 0,\r\n            \"comida\": 5,\r\n            \"agua\": 1\r\n        },\r\n        \"localizacao\": {\r\n            \"nomeGalaxia\": \"Bororosca\",\r\n            \"latitude\": 2546.0,\r\n            \"longitude\": 345.0\r\n        },\r\n        \"reporteTraicao\": 0\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/rebeldes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"rebeldes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/rebeldes/<id>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/rebeldes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"rebeldes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/traidores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/rebeldes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"rebeldes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/traidores/<id>",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/traidores/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"traidores",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/localizacao/<id>",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeGalaxia\": \"Boro\",\r\n    \"latitude\": 1.0,\r\n    \"longitude\": 1.0\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/localizacao/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"localizacao",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "relatorios/rebeldes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "relatorios/traidores",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "relatorios/mediaRecursos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "relatorios/pontosPerdidosTraidores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/relatorio/pontosperdidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"relatorio",
+						"pontosperdidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transacao",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idComprador\" : 1,\r\n    \"armaComprador\" : 0,\r\n    \"municaoComprador\": 0,\r\n    \"comidaComprador\": 0,\r\n    \"aguaComprador\" : 0,\r\n    \"idVendedor\" : 2,\r\n    \"armaVendedor\" : 0,\r\n    \"municaoVendedor\" : 0,\r\n    \"comidaVendedor\" : 0,\r\n    \"aguaVendedor\" : 0\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/transacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"transacao"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
