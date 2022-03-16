@@ -5,17 +5,18 @@ https://app-starwars-letscode.herokuapp.com/swagger-ui.html#/star-wars-controlle
 
 Arquivo: StarWars.postman_collection.json (Postman configurado para consumir a API)
 
-###Cadastro Rebelde (POST /rebeldes)
-###Consulta Rebeldes (GET /rebeldes)
-###Consulta Rebelde por ID (GET /rebeldes/{id})
+### Cadastro Rebelde (POST /rebeldes)
 
-###Consulta Traidores (GET /traidores)
-###Reporte Traidores (POST /traidores/{id})
+### Consulta Rebeldes (GET /rebeldes)
+### Consulta Rebelde por ID (GET /rebeldes/{id})
 
-###Alteração de Localização (PUT /localização/{id})
-###Transação de Inventário (POST /transacao)
+### Consulta Traidores (GET /traidores)
+### Reporte Traidores (POST /traidores/{id})
 
-###Relatorio de Rebeldes (GET /relatorios/rebeldes)
-###Relatorio de Traidores (GET /relatorios/traidores)
-###Relatorio de Media de Recursos (GET /relatorios/mediarecursos)
-###Relatorio de Pontos Perdidos por Traição (GET /relatorios/pontosperdidos)
+### Alteração de Localização (PUT /localização/{id})
+### Transação de Inventário (POST /transacao)
+
+### Relatorio de Rebeldes (GET /relatorios/rebeldes)
+### Relatorio de Traidores (GET /relatorios/traidores)
+### Relatorio de Media de Recursos (GET /relatorios/mediarecursos)
+### Relatorio de Pontos Perdidos por Traição (GET /relatorios/pontosperdidos)
